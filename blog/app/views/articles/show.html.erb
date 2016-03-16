@@ -1,0 +1,37 @@
+<h3><%= @art.artTitle %>&nbsp &nbsp <small class="author-name">by <%= @art.author.authName %></small><small class="time">&nbsp &nbsp <%= time_ago_in_words(@art.created_at) %> ago</small></h3>
+<p><%= @art.artBody %></p>
+<% if logged_in? %>
+  <% if @art.author == Author.find(session[:author_id]) && !@art.author.admin %>
+    <p><%= link_to "[Edit]", edit_article_path %></p>
+  <% end %>
+  <% if Author.find(session[:author_id]).admin %>
+      <p><%= link_to "[Edit]", edit_article_path %></p>
+      <p><%= link_to "[Delete]", article_path(@art), :method => :delete %></p>
+      <hr>
+  <% end %>
+<% end %>
+
+<% if logged_in? %>
+  <div>
+   <%= form_for([@art, @comm], as: :commparams, url: comments_article_path(@art)) do |c| %>
+   <%= c.label :Your_comment %>
+   <br>
+   <%= c.text_area :commBody, rows:10, cols:100 %>
+   <br>
+   <%= c.submit 'submit' %>
+   <% end %>
+  </div>
+<% end %>
+
+<h3>Comments <small>&nbsp(<%= @art.comments.length %>)</small></h3>
+
+<hr>
+<% @art.comments.each do |c| %>
+ <% if logged_in? %>
+  <%  if c.author_id == session[:author_id] || Author.find(session[:author_id]).admin %>
+   <p class="comments"><%= c.commBody %><small class="delete-comment"><%= link_to "[DELETE]", delete_comments_article_path(@art,as: c), method: :destroy %></small></p>
+  <% else %>
+   <p class="comments"><%= c.commBody %></p>
+  <% end %>
+ <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<h1 class="page-title">Authors</h1>
+<hr>
+<% @auth.each do |a| %>
+<h3 class="authors-list-page"><%= link_to a.authName, author_path(a) %>
+      <% if logged_in? && Author.find(session[:author_id]).admin %>
+        <span class="delete-edit-category"><%= link_to "[Edit]", edit_author_path(a) %></span>
+        <span>&nbsp &nbsp</span>
+        <span class="delete-edit-category"><%= link_to "[Delete]", author_path(a), :method => :delete %></span>
+     <% end %>
+</h3>
+<% end %>

@@ -1,0 +1,6 @@
+<h1 class="page-title"><%= @cat.catName %></h1>
+<hr>
+
+<% @cat.articles.each do |catArt| %>
+ <h4 class="articles-list-page"><%= link_to catArt.artTitle, article_path(catArt) %></h4>
+<% end %>

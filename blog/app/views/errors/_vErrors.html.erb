@@ -1,0 +1,8 @@
+<ul class="form-errors">
+  <% if x.errors.any? %>
+    <% x.errors.full_messages.each do |y| %>
+      <li><%= y %></li>
+    <% end %>
+  <% end %>
+</ul>
+

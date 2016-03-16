@@ -1,0 +1,17 @@
+<h1 class="page-title">Edit Article</h1>
+<hr>
+<%= @xx.inspect %>
+
+<%= render 'errors/vErrors', x: @art%>
+
+<div>
+ <%= form_for @art do |a| %>
+   <%= a.label :Title %>
+   <%= a.text_field :artTitle %>
+   <br><br>
+   <%= a.label :Details %>
+   <%= a.text_area :artBody, rows:10, cols:30 %>
+   <br><br>
+   <%= a.submit "Update" %>
+ <% end %> 
+</div>

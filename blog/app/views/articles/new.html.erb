@@ -1,0 +1,15 @@
+<h1 class="page-title">Create New Article</h1>
+<hr>
+<%= render 'errors/vErrors', x: @art%>
+<div>
+ <%= form_for @art do |a| %>
+   <%= collection_select :category,:artCatName,@cat,:id,:catName %>
+   <%= a.label :Title %>
+   <%= a.text_field :artTitle %>
+   <br><br>
+   <%= a.label :Details %>
+   <%= a.text_area :artBody, rows:10, cols:30 %>
+   <br><br>
+   <%= a.submit "Publish" %>
+ <% end %> 
+</div>

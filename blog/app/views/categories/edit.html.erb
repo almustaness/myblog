@@ -1,0 +1,10 @@
+<h1 class="page-title">Update the Category: <%= Category.find(params[:id]).catName %></h1>
+<hr>
+<%= render 'errors/vErrors', x: @cat %>
+<div>
+  <%= form_for @cat do |c| %>
+  <%= c.label :Name %>
+  <%= c.text_field :catName %>
+  <%= c.submit "Update" %>
+  <% end %>  
+</div>

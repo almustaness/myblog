@@ -1,0 +1,10 @@
+<h1 class="page-title">Create New Category</h1>
+<hr>
+<%= render 'errors/vErrors', x: @cat %>
+<div>
+  <%= form_for @cat do |c| %>
+  <%= c.label :Name %>
+  <%= c.text_field :catName %>
+  <%= c.submit "Create" %>
+  <% end %>  
+</div>

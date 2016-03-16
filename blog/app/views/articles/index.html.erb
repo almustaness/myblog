@@ -1,0 +1,50 @@
+
+<h1 class="page-title">Articles</h1>
+<hr>
+
+<div class="category-container">
+    <ul  class="category-titles">
+      <% @cat.each do |c| %> 
+       <li class="category-titles"><%= link_to c.catName, category_path(c) %></li>
+      <% end %>
+  </ul>
+</div>
+<br><br><br><hr>
+
+
+<% @art.each do |t| %>
+
+   <p class="articles-list-page"><%= link_to t.artTitle, article_path(t)  %> &nbsp by <small class="author-name"> <%= link_to t.author.authName, author_path(t.author) %> &nbsp &nbsp </small>
+   <small class="time">Created at: <%= time_ago_in_words(t.created_at) %> ago</small></p>
+   <% if t.thumbs.length > 0 %>
+   
+          <% $x = 0 %>
+          <% while $x < t.thumbs.length %>
+           <% if t.thumbs[$x].author_id == session[:author_id] %>
+            <% $y = 1 %>
+            <% break %>
+           <% else %>
+            <% $y=0 %>
+            <% $x+=1 %>
+           <% end %>
+          <% end %>
+           
+          <% if $y == 1 %>
+           <% $z = t.thumbs.find_by(author_id: session[:author_id]).vote %>
+           <% if $z == "like" %>
+             <p class="like-btn-liked"><%= "Liked" %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"like").length %>)</small></p></p>
+             <p class="dislike-btn"><%= link_to "Dislike", vote_article_path(t, vote:"dislike", author_id: session[:author_id], article_id: t.id), method: :post %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"dislike").length %>)</small></p>
+           <% else %>
+             <p class="like-btn"><%= link_to "Like", vote_article_path(t, vote:"like", author_id: session[:author_id], article_id: t.id), method: :post %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"like").length %>)</small></p>
+             <p class="dislike-btn-disliked"><%= "Disliked" %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"dislike").length %>)</small></p>
+           <% end %>
+          <% else %>
+            <p class="like-btn"><%= link_to "Like", vote_article_path(t, vote:"like", author_id: session[:author_id], article_id: t.id), method: :post  %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"like").length %>)</small></p>
+            <p class="dislike-btn"><%= link_to "Dislike", vote_article_path(t, vote:"dislike", author_id: session[:author_id], article_id: t.id), method: :post %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"dislike").length %>)</small></p>
+          <% end %>
+   <% else %>
+            <p class="like-btn"><%= link_to "Like", vote_article_path(t, vote:"like", author_id: session[:author_id], article_id: t.id), method: :post  %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"like").length %>)</small></p>
+            <p class="dislike-btn"><%= link_to "Dislike", vote_article_path(t, vote:"dislike", author_id: session[:author_id], article_id: t.id), method: :post %><small>&nbsp &nbsp (<%= t.thumbs.where(:vote=>"dislike").length %>)</small></p>
+   <% end %>
+<% end %>
+

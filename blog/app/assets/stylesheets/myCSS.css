@@ -1,0 +1,215 @@
+.mainContrainer{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  width:800px;
+  position: relative;
+  margin:auto;
+  padding: 10px;
+}
+
+.category-titles li{
+  float:right;
+  margin-left: 35px;
+  font-weight: bold;
+  font-family: arial;
+  background: #f7b307;
+  border-radius: 10px;
+  padding: 10px;
+  list-style: none;
+  position: relative;
+}
+.category-titles li a{
+ color: white;
+}
+.category-titles li a:visited{
+ color: white;
+}
+.category-titles li a:active{
+ color: white;
+}
+.category-titles li a{
+ text-decoration:none;
+}
+
+.category-titles ul{
+  position: absolute;
+  margin: 10px auto;
+}
+
+.category-container{
+  position: absolute;
+  margin: 5px auto;
+}
+
+.categories-list-page{
+ font-family:arial;
+ font-size:18px;
+ background:#0d9fd8;
+ padding: 10px;
+ border-radius: 10px;
+ position: relative;
+ top:10px;
+ margin-top:10px;
+}
+
+.categories-list-page a{
+  text-decoration: none;
+  color:white;
+}
+
+.categories-list-page a:visited{
+  text-decoration: none;
+  color:white;
+}
+
+.categories-list-page span {
+  font-size:12px;
+  font-weight: bold;
+  float:right;
+}
+.authors-list-page{
+ font-family:arial;
+ font-size:18px;
+ background:#0d9fd8;
+ padding: 10px;
+ border-radius: 10px;
+ position: relative;
+ top:10px;
+ margin-top:10px;
+}
+
+.authors-list-page a{
+  text-decoration: none;
+  color:white;
+}
+
+.authors-list-page a:visited{
+  text-decoration: none;
+  color:white;
+}
+
+.authors-list-page span {
+  font-size:12px;
+  font-weight: bold;
+  float:right;
+}
+.articles-list-page a{
+  color:black;
+  font-family:arial;
+  font-weight:bold;
+}
+
+
+.articles-list-page a:visited{
+  color:black;
+  font-family:arial;
+  font-weight:bold;
+}
+
+
+
+.page-title{
+  font-family:arial;
+  font-size: 40px;
+  position:relative;
+  left:300px;
+  top: 20px;
+  color:#5fdd35;
+}
+
+.header{
+  position:absolute;
+  top:-40px;
+  margin:auto;
+  width:100%;
+}
+
+.header li{
+  list-style:none;
+  float:left;
+  background:#5fdd35;
+  color:black;
+  padding:6px;
+  margin: 10px;
+  border-radius:10px;
+}
+
+ #new-article{
+  background:#f7b307;
+}
+ #new-category{
+  background:#f7b307;
+}
+.header li a{
+  text-decoration:none;
+  font-family:arial;
+}
+.header a:visited{
+  color:black;
+}
+
+
+
+.author-name a, .author-name a:link, .author-name a:visited{
+  color:black;
+  font-size:11px;
+}
+.author-name{
+  font-size:12px;
+}
+.time{
+  font-size:12px;
+}
+
+.login-welcome{
+  position: absolute;
+  left:660px;
+  top:20px;
+}
+
+.sign-up{
+  position: absolute;
+  left:720px;
+  top:20px;
+}
+.logout-btn{
+  position: absolute;
+  left:725px;
+  top:50px;
+}
+
+.form-errors{
+  background: red;
+  color:white;
+}
+
+.like-btn a{
+  color:black;
+  text-decoration:none;
+}
+
+.dislike-btn a{
+  color:black;
+  text-decoration:none;
+}
+
+.like-btn-liked {
+ color:#2ed800;
+  font-weight:bold;
+  text-decoration:none;
+}
+.dislike-btn-disliked {
+  color:#2ed800;
+  font-weight:bold;
+  text-decoration:none;
+}
+.comments{
+  margin:10px;
+  padding:6px;
+  background:#efeded;
+}
+
+.delete-comment{
+  float:right;
+  color:red;
+}

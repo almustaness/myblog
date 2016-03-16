@@ -1,0 +1,12 @@
+<h1 class="page-title">Articles by <%= @auth.authName %></h1>
+<hr>
+<% @auth.articles.each do |authArt| %>
+<h4 class="articles-list-page"><%= link_to authArt.artTitle, article_path(authArt) %></h4>
+<% end %>
+<hr>
+<h4 style="color:orange; font-family:arial;">Your votes for the articles</h4>
+<hr>
+<% @auth.thumbs.each do |v|  %>
+<p><%= @art.find(v.article_id).artTitle %><small> - &nbsp<%= v.vote %></small><p>
+<% end %>
+

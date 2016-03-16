@@ -1,0 +1,14 @@
+<h1 class="page-title">Register a new account</h1>
+<hr> 
+<%= render 'errors/vErrors', x:@auth %>
+<div>
+  <%= form_for @auth do |a| %>
+  <%= a.label :UserName %>
+  <%= a.text_field :authName %>
+  <%= a.label :email %>
+  <%= a.email_field :email %>
+  <%= a.label :password %>
+  <%= a.password_field :password %>
+  <%= a.submit "Create" %>
+  <% end %>
+</div>
